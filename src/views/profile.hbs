@@ -1,0 +1,104 @@
+<div class="container p-4">
+    <div class="container">
+        <h3>Bienvenido {{user.fullname}}{{user.apellido1}}</h3>
+
+
+        <div class="row" style="text-align: center;">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <img style="width: 100%;" class="img-responsive" id="myimage1" 
+                    src="https://educacionmediasuperior.sep.gob.mx/work/models/sems/Resource/13658/1/images/LOGOS-01.png">
+                <br>
+                <a href="/links" id="fotocomision1">{{user.comision1}}</a>
+            </div>
+            <div class="col-md-2">
+                <img style="width: 100%;" class="img-responsive" id="myimage2" 
+                    src="https://educacionmediasuperior.sep.gob.mx/work/models/sems/Resource/13658/1/images/LOGOS-02.png">
+                <br><a href="#" id="fotocomision2">{{user.comision2}}</a>
+            </div>
+            <div class="col-md-2">
+                <img style="width: 100%;" class="img-responsive" id="myimage3" 
+                    src="https://educacionmediasuperior.sep.gob.mx/work/models/sems/Resource/13658/1/images/LOGOS-03.png">
+                <br><a href="#" id="fotocomision3">{{user.comision3}}</a>
+            </div>
+            <div class="col-md-2">
+                <img style="width: 100%;" class="img-responsive" id="myimage4" 
+                    src="https://educacionmediasuperior.sep.gob.mx/work/models/sems/Resource/13658/1/images/LOGOS-04.png">
+                <br><a href="#" id="fotocomision4">{{user.comision4}}</a>
+            </div>
+            <div class="col-md-2">
+                <img style="width: 100%;" class="img-responsive" id="myimage5" 
+                    src="https://educacionmediasuperior.sep.gob.mx/work/models/sems/Resource/13658/1/images/LOGOS-05.png">
+                <br><a href="#" id="fotocomision5">{{user.comision5}}</a>
+            </div>
+            <div class="col-md-1"></div>
+
+            </a>
+        </div>
+
+
+        <script>
+            var ver1 = document.getElementById('fotocomision1').innerHTML
+            var ver2 = document.getElementById('fotocomision2').innerHTML
+            var ver3 = document.getElementById('fotocomision3').innerHTML
+            var ver4 = document.getElementById('fotocomision4').innerHTML
+            var ver5 = document.getElementById('fotocomision5').innerHTML
+
+
+            var img1 = document.getElementById('myimage1')
+            var img2 = document.getElementById('myimage2')
+            var img3 = document.getElementById('myimage3')
+            var img4 = document.getElementById('myimage4')
+            var img5 = document.getElementById('myimage5')
+
+
+         //   console.log(ver)
+        if(ver1 != '')
+        {
+          //  console.log('si tenemos texto');
+        }else{
+            console.log('no tenemos texto')
+            img1.style.filter = 'grayscale(100%)';
+        }
+
+         if(ver2 != '')
+        {
+        }else{
+            console.log('no tenemos texto')
+            img2.style.filter = 'grayscale(100%)';
+        }
+
+         if(ver3 != '')
+        {
+          
+        }else{
+            console.log('no tenemos texto')
+            img3.style.filter = 'grayscale(100%)';
+        }
+
+         if(ver4 != '')
+        {
+   
+        }else{
+            console.log('no tenemos texto')
+            img4.style.filter = 'grayscale(100%)';
+        }
+
+         if(ver5 != '')
+        {
+        
+        }else{
+            console.log('no tenemos texto')
+            img5.style.filter = 'grayscale(100%)';
+        }
+
+        </script>
+
+
+        <!--
+             <a href="/links" class="btn btn-primary m-4">
+            Save your Links
+        </a>
+        -->
+    </div>
+</div>

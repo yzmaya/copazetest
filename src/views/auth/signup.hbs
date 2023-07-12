@@ -1,0 +1,134 @@
+
+
+<div class="container p-4">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <div class="card text-center">
+        <div class="card-header">
+          <h3>Crear cuenta</h3>
+        </div>
+        <div class="card-body">
+          <form class="" action="/signup" method="POST" style="background-color:;">
+
+           <div class="form-group">
+              <input type="email" name="username" placeholder="correo electrónico" class="form-control" autofocus required>
+            </div>
+            <div class="form-group">
+              <input type="password" name="password" placeholder="Password" class="form-control" required>
+            </div>
+            <div class="form-group">
+              <input type="type" name="fullname" placeholder="Nombre " class="form-control"  required>
+            </div>
+
+            <div class="form-group">
+              <input type="type" name="apellido1" placeholder="Apellido Paterno " class="form-control"  required>
+            </div>
+
+            <div class="form-group">
+              <input type="type" name="apellido2" placeholder="Apellido Materno " class="form-control"  required>
+            </div>
+           
+            <div class="form-group">
+              <input type="text" name="cct" placeholder="CCT" class="form-control" required>
+            </div>
+
+            <div class="form-inline">
+
+              <input type="checkbox" class="form-control" id="check1" class="col-sm-4">
+              <input type="text" name="comision1" id="mycomision1" class="form-control" placeholder="COPAZE"
+                readonly>
+            </div>
+
+            <div class="form-inline">
+              <input type="checkbox" class="form-control" id="check2" class="col-sm-4">
+              <input type="text" name="comision2" id="mycomision2" class="form-control" placeholder="Salud física y mental"
+                readonly>
+
+            </div>
+
+            <div class="form-inline">
+              <input type="checkbox" class="form-control" id="check3" class="col-sm-4">
+              <input type="text" name="comision3" id="mycomision3" class="form-control" placeholder="Activación física"
+                readonly>
+
+            </div>
+
+            <div class="form-inline">
+              <input type="checkbox" class="form-control" id="check4" class="col-sm-4">
+              <input type="text" name="comision4" id="mycomision4" class="form-control" placeholder="Arte y cultura"
+                readonly>
+
+            </div>
+
+            <div class="form-inline">
+              <input type="checkbox" class="form-control" id="check5" class="col-sm-4">
+              <input type="text" name="comision5" id="mycomision5" class="form-control" placeholder="Gestión ambiental"
+                readonly>
+
+            </div>
+
+
+            <div class="form-group">
+              <button class="btn btn-success btn-block">
+                SingIn
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  var boton1 = document.getElementById('check1');
+  var boton2 = document.getElementById('check2');
+  var boton3 = document.getElementById('check3');
+  var boton4 = document.getElementById('check4');
+  var boton5 = document.getElementById('check5');
+
+
+
+  boton1.addEventListener('click', function () {
+    if (boton1.checked) {
+      document.getElementById('mycomision1').value = 'Cultura de la paz, erradicación de la violencia y prevención de riesgos';
+    } else {
+      document.getElementById('mycomision1').value = '';
+    }
+  });
+
+  boton2.addEventListener('click', function () {
+    if (boton2.checked) {
+      document.getElementById('mycomision2').value = 'Salud física y mental';
+    } else {
+      document.getElementById('mycomision2').value = '';
+    }
+  });
+
+
+  boton3.addEventListener('click', function () {
+    if (boton3.checked) {
+      document.getElementById('mycomision3').value = 'Activación física, deporte, alimentación saludable y nutritiva';
+    } else {
+      document.getElementById('mycomision3').value = '';
+    }
+  });
+
+
+  boton4.addEventListener('click', function () {
+    if (boton4.checked) {
+      document.getElementById('mycomision4').value = 'Arte y cultura';
+    } else {
+      document.getElementById('mycomision4').value = '';
+    }
+  });
+
+
+  boton5.addEventListener('click', function () {
+    if (boton5.checked) {
+      document.getElementById('mycomision5').value = 'Gestión ambiental sostenible y ahorro de recursos';
+    } else {
+      document.getElementById('mycomision5').value = '';
+    }
+  });
+</script>
