@@ -55,6 +55,10 @@ app.use((req, res, next) => {
 app.use(require('./routes/index'));
 app.use(require('./routes/authentication'));
 app.use('/links', require('./routes/links'));
+app.use(require('./routes/salud'));
+app.use(require('./routes/activacion'));
+app.use(require('./routes/arteYcultura'));
+app.use(require('./routes/gestionAmbiental'));
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));
