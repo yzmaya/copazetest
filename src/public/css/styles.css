@@ -10,13 +10,6 @@ font-family: 'Oswald', sans-serif;
     height: 100vh;
 }
 
-.navbar {
-    background: black !important;
-}
-
-.nav-link {
-    color: #fff !important;
-}
 
 .masthead {
     color: white;
@@ -37,6 +30,7 @@ font-family: 'Oswald', sans-serif;
     padding: 0;
   }
   
+
   @media (min-width: 992px) {
     .masthead {
       height: 100vh;
