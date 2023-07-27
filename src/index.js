@@ -59,7 +59,6 @@ app.use(require('./routes/salud'));
 app.use(require('./routes/activacion'));
 app.use(require('./routes/arteYcultura'));
 app.use(require('./routes/gestionAmbiental'));
-app.use(require('./routes/files'))
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));

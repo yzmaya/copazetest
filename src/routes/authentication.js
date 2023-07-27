@@ -17,7 +17,7 @@ router.post('/signup', passport.authenticate('local.signup', {
 
 // SINGIN
 router.get('/signin', (req, res) => {
-  res.render('auth/signin');
+  res.render('index.hbs');
 });
 
 router.post('/signin', (req, res, next) => {
