@@ -10781,3 +10781,8 @@ dt {
 .signin{
     padding: 3% 0;
 }
+
+/*styles add.hbs*/
+.add{
+    padding-top: 5%;
+}
