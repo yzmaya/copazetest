@@ -1,0 +1,65 @@
+   
+ <div class="modal fade" id="solicitarCuenta"> 
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4 class="modal-title">Solicitar cuenta</h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="container">
+                          <div class="row">
+                              <div class="col-md-5 col-xs-12 col-sm-8">
+
+                          <div class="card">
+                            <div class="card-body">
+                              <form action="/modal" method="POST">
+                                <div class="form-group">
+                                  <select class="form-control" name="junta">
+                                     <option selected="true" disabled="disabled">Elegir opción</option>
+                                     <option id="culturadepaz.eje4@sems.gob.mx">Consejo de paz escolar COPAZE</option>
+                                     <option id="salud.eje4@sems.gob.mx">Salud física y mental</option>
+                                     <option id="activacionfisica.eje4@sems.gob.mx">Activación física, deporte, alimentación saludable y nutritiva</option>
+                                     <option id="arteycultura.eje4@sems.gob.mx">Arte y cultura</option>
+                                     <option id="ambiental.eje4@sems.gob.mx">Gestión ambiental sostenible y ahorro de recursos</option>
+                                   </select>
+                                </div>
+                        <div class="form-group">
+                            <input type="text" name="cct" class="form-control" placeholder="CCT">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subsistema" class="form-control" placeholder="Subsistema">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre completo">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido1" class="form-control" placeholder="Primer apellido">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido2" class="form-control" placeholder="Segundo apellido">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" placeholder="Correo electronico">
+                        </div>
+                    </form>
+                </div>
+                      </div>
+                    </div>
+
+                     </div>
+                    </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                      <button type="button" class="btn btn-primary" >Enviar</button>
+                    </div>
+                  </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+              </div>
+
+<script>
+  function prueba(){
+    var text = document.getElementById('culturadepaz.eje4@sems.gob.mx').innerHTML
+    console.log(text)
+  }
+</script>

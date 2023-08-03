@@ -14,7 +14,7 @@
     thead th {
         position: sticky;
         top: 0;
-        background: rgb(2, 170, 106);
+        background: #DDDDDD;
         z-index: 1;
         border-bottom: 2px solid;
     }
@@ -50,7 +50,7 @@
         <br> 
         <br>  
     </ul>
-    <div class="table-responsive contenedor-tabla">
+    <div class="table-responsive table-bordered contenedor-tabla">
         <table class="table table-hover ">
             <thead>
                 <tr>
@@ -87,14 +87,12 @@
 
 
             </tbody>
-            {{else}}
-            <div class="col-md-4 mx-auto">
-                <div class="card card-body text-center">
-                    <p>Aún no tienes nada registrado.</p>
-                    <a href="/links/add">Agregar miembros</a>
-                </div>
-            </div>
             {{/each}}
         </table>
     </div>
+    <div class="col-md-4 col-md-offset-5" style="padding: 20px 0;">
+        <a href="/links/add"><button type="button" class="btn btn-primary">Agregar miembros</button></a>
+    </div>
+
+           
 </div>

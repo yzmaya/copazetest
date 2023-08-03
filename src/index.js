@@ -8,6 +8,7 @@ const passport = require('passport');
 const flash = require('connect-flash');
 const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
+const transporter = require("./lib/mailer")
 
 const { database } = require('./keys');
 
@@ -59,9 +60,23 @@ app.use(require('./routes/salud'));
 app.use(require('./routes/activacion'));
 app.use(require('./routes/arteYcultura'));
 app.use(require('./routes/gestionAmbiental'));
+app.use(require('./routes/eSolicitud'));
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Tranporter Nodemailer
+app.post("/api/auth/login/:email/code", async function(req, res){
+  const {email} = req.params
+  const result = await transporter.sendMail({
+    from:"karen.jasso@sems.gob.mx",
+    to:email,
+    subject: "prueba",
+    body: "Cuerp del mensaje de prueba",
+  })
+  console.log({result})
+  res.status(200).json({ok:true, message:"mensaje enviado con éxito"})
+})
 
 // Starting
 app.listen(app.get('port'), () => {

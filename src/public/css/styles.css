@@ -8690,7 +8690,7 @@ dt {
 .alert {
     border-width: 2px;
     text-align: center;
-    padding: 20px 15px
+    /* padding: 20px 15px */
 }
 
 .alert-dismissable,
@@ -10760,8 +10760,11 @@ dt {
 }
 
 /* Own styles index.hbs--home*/
-.img-principal{
-    padding-top: 48px;
+/* .img-principal{
+    padding-top: 74px;
+} */
+.main-class{
+    padding-top: 74px;
 }
 .video-youtube{
     margin: 30px auto;
@@ -10784,5 +10787,5 @@ dt {
 
 /*styles add.hbs*/
 .add{
-    padding-top: 5%;
+    margin-top: 100px;
 }
