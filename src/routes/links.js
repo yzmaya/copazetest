@@ -39,46 +39,39 @@ router.get('/add', (req, res) => {
     res.render('links/add');
 });
 
-router.get('/modal', (req, res) => {
-    res.render('partials/modal');
-});
 
 
 router.post('/add', async (req, res) => {
-   
-    const archivo1 = req.file.originalname;
-    const { tipo, comision, nombre, apellido1, apellido2, cargo, dependencia} = req.body;
-    const newLink = {
-        tipo,
-        comision,
-        nombre,
-        apellido1,
-        apellido2,
-        cargo,
-        dependencia,
-        archivo1,
-        user_id: req.user.id
-    };
-    await pool.query('INSERT INTO links set ?', [newLink]);
-    req.flash('success', 'Link Saved Successfully');
-    res.redirect('/links');
+    try {
+        let archivo1 = '';
+        if (req.file) {
+            archivo1 = req.file.originalname;
+        }
+        const { tipo, comision, nombre, apellido1, apellido2, cargo, dependencia } = req.body;
+        const newLink = {
+            tipo,
+            comision,
+            nombre,
+            apellido1,
+            apellido2,
+            cargo,
+            dependencia,
+            archivo1,
+            user_id: req.user.id
+        };
+        await pool.query('INSERT INTO links set ?', [newLink]);
+        req.flash('success', 'Link Saved Successfully');
+        res.redirect('/links');
+    } catch (error) {
+        console.error(error);
+        req.flash('error', 'Error saving link');
+        res.redirect('/links/add');
+    }
 });
 
-router.post('/modal', async (req, res) => {
-   /*  const { junta, cct, subsistema, nombre, apellido1, apellido2, email} = req.body;
-    const newLink = {
-        junta,
-        cct,
-        subsistema,
-        nombre,
-        apellido1,
-        apellido2,
-        email,
-    };
-    console.log(newLink)
-    res.send('recibido') */
-    console.log('prueba')
-});
+
+
+
 
 
 router.get('/', isLoggedIn, async (req, res) => {

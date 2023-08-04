@@ -56,27 +56,55 @@
 
                         </div>
 
-
-                        <div class="form-group">
+                        <!-- Agrega este código dentro de tu formulario, antes del botón de guardar -->
+                        <div class="form-group" id="actaConstitutivaInput" style="display: none;">
                             <input type="file" name="archivo1" class="form-control">
-
                         </div>
 
-
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block">
+                            <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#confirmModal">
                                 Guardar
                             </button>
 
 
                         </div>
+
+
                     </form>
+
                 </div>
             </div>
         </div>
 
     </div>
 </div>
+
+
+<!-- Contenido del formulario existente ... -->
+<!-- Ventana modal -->
+<div id="confirmModal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Confirmar acción</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>¿Desea mostrar el input file?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" id="showInputFile">Sí</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 <script>
 
@@ -194,8 +222,34 @@
     }
 
 
-    function myFunction() {
-        alert("a")
 
-    }
+</script>
+
+<script>
+    $(document).ready(function () {
+        // Evento clic del botón "Guardar"
+        $('.btn-primary.btn-block').click(function (event) {
+            event.preventDefault(); // Previene el envío del formulario
+
+            // Muestra la ventana modal
+            $('#confirmModal').modal('show');
+        });
+
+        // Evento clic del botón "Sí" de la ventana modal
+        $('#showInputFile').click(function () {
+            // Cierra la ventana modal
+            $('#confirmModal').modal('hide');
+
+            // Muestra el input file
+            $('#actaConstitutivaInput').show();
+        });
+
+        // Evento clic del botón "No" de la ventana modal
+        $('#confirmModal').on('hidden.bs.modal', function () {
+            // Si la ventana modal se cierra sin hacer clic en "Sí",
+            // envía el formulario
+            $('#actaConstitutivaInput').hide();
+            $('form').submit();
+        });
+    });
 </script>

@@ -65,18 +65,8 @@ app.use(require('./routes/eSolicitud'));
 // Public
 app.use(express.static(path.join(__dirname, 'public')));
 
-//Tranporter Nodemailer
-app.post("/api/auth/login/:email/code", async function(req, res){
-  const {email} = req.params
-  const result = await transporter.sendMail({
-    from:"karen.jasso@sems.gob.mx",
-    to:email,
-    subject: "prueba",
-    body: "Cuerp del mensaje de prueba",
-  })
-  console.log({result})
-  res.status(200).json({ok:true, message:"mensaje enviado con éxito"})
-})
+
+
 
 // Starting
 app.listen(app.get('port'), () => {
