@@ -5,8 +5,8 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: "tumailx",
-        pass: "",
+        user: "karen.jasso@sems.gob.mx",
+        pass: "kar3n29**",
     }
 });
 

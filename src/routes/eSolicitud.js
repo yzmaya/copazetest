@@ -63,7 +63,7 @@ router.post('/enviar-formulario', async (req, res) => {
 
     // Código para enviar el correo con nodemailer usando el destinatario y el mensaje
     const result = await transporter.sendMail({
-      from: "nestor.yzmaya@sems.gob.mx",
+      from: "karen.jasso@sems.gob.mx",
       to: juntaSeleccionada,
       subject: "Información de formulario",
       text: mensaje,
