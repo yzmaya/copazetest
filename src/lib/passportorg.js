@@ -2,18 +2,24 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 
 const pool = require('../database');
+const helpers = require('./helpers');
 
 passport.use('local.signin', new LocalStrategy({
   usernameField: 'username',
   passwordField: 'password',
   passReqToCallback: true
 }, async (req, username, password, done) => {
-  const rows = await pool.query('SELECT * FROM users WHERE username = ? AND contrasena = ?', [username, password]);
+  const rows = await pool.query('SELECT * FROM users WHERE username = ?', [username]);
   if (rows.length > 0) {
     const user = rows[0];
-    done(null, user, req.flash('success', 'Welcome ' + user.username));
+    const validPassword = await helpers.matchPassword(password, user.password)
+    if (validPassword) {
+      done(null, user, req.flash('success', 'Welcome ' + user.username));
+    } else {
+      done(null, false, req.flash('message', 'Incorrect Password'));
+    }
   } else {
-    done(null, false, req.flash('message', 'Incorrect Email or Password'));
+    return done(null, false, req.flash('message', 'The Username does not exists.'));
   }
 }));
 
@@ -23,24 +29,31 @@ passport.use('local.signup', new LocalStrategy({
   passReqToCallback: true
 }, async (req, username, password, done) => {
 
-  const { fullname, apellido1, apellido2, cct, comision1, comision2, comision3, comision4, comision5, subsistema } = req.body;
+  const { fullname } = req.body;
+  const { apellido1 } = req.body;
+  const { apellido2 } = req.body;
+  const { cct } = req.body;
+  const { comision1 } = req.body;
+  const { comision2 } = req.body;
+  const { comision3 } = req.body;
+  const { comision4 } = req.body;
+  const { comision5 } = req.body;
+
 
   let newUser = {
     fullname,
     apellido1,
     apellido2,
     username,
-    contrasena: password, // Aquí estás asignando el valor del campo 'password' del formulario a la columna 'password' en la tabla 'users'
+    password,
     cct,
     comision1,
     comision2,
     comision3,
     comision4,
-    comision5,
-    subsistema
-  };
-  
-
+    comision5
+  }; 
+  newUser.password = await helpers.encryptPassword(password);
   // Saving in the Database
   const result = await pool.query('INSERT INTO users SET ? ', newUser);
   newUser.id = result.insertId;
@@ -55,3 +68,4 @@ passport.deserializeUser(async (id, done) => {
   const rows = await pool.query('SELECT * FROM users WHERE id = ?', [id]);
   done(null, rows[0]);
 });
+

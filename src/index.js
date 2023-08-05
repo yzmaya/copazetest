@@ -61,6 +61,10 @@ app.use(require('./routes/activacion'));
 app.use(require('./routes/arteYcultura'));
 app.use(require('./routes/gestionAmbiental'));
 app.use(require('./routes/eSolicitud'));
+app.use(require('./routes/ePasswd'));
+
+// Importar el router de ePasswd.js
+
 
 // Public
 app.use(express.static(path.join(__dirname, 'public')));

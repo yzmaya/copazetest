@@ -57,50 +57,40 @@
                         </div>
 
                         <!-- Agrega este código dentro de tu formulario, antes del botón de guardar -->
+
+
+                        <!-- Agrega este código dentro de tu formulario, antes del botón de guardar -->
                         <div class="form-group" id="actaConstitutivaInput" style="display: none;">
                             <input type="file" name="archivo1" class="form-control">
                         </div>
 
                         <div class="form-group">
-                            <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#confirmModal">
-                                Guardar
-                            </button>
-
-
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" id="checkActa">Deseas agregar tu acta para el tipo
+                                    <label for="seleccionar" id="tipoLabel">Integrantes</label>
+                                </label>
+                            </div>
                         </div>
+
+                        <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#confirmModal">
+                            Guardar
+                        </button>
+
+
+
 
 
                     </form>
 
                 </div>
             </div>
-        </div>
 
-    </div>
-</div>
-
-
-<!-- Contenido del formulario existente ... -->
-<!-- Ventana modal -->
-<div id="confirmModal" class="modal fade" tabindex="-1" role="dialog">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Confirmar acción</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>¿Desea mostrar el input file?</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                <button type="button" class="btn btn-primary" id="showInputFile">Sí</button>
-            </div>
         </div>
     </div>
 </div>
+
+
 
 
 
@@ -117,7 +107,7 @@
         let eleccion = seleccionar.value;
 
         if (eleccion === 'Red de Apoyo') {
-
+            document.getElementById('tipoLabel').innerHTML = 'Red de Apoyo';
             document.getElementById('app2').style.display = 'block';
 
             if (document.getElementById('temporal')) {
@@ -141,6 +131,7 @@
 
 
         } else if (eleccion === 'Integrantes') {
+            document.getElementById('tipoLabel').innerHTML = 'Integrantes';
             if (document.getElementById('cargosUnidad')) {
                 document.getElementById('cargosUnidad').remove();
             }
@@ -179,6 +170,7 @@
 
             document.getElementById("app").appendChild(div);
         } else if (eleccion === 'Unidad de Atención') {
+            document.getElementById('tipoLabel').innerHTML = 'Unidad de Atención';
             // document.getElementById('mostrarSign').style.display = 'none';
             if (document.getElementById('cargosUnidad')) {
                 document.getElementById('cargosUnidad').remove();
@@ -226,30 +218,14 @@
 </script>
 
 <script>
-    $(document).ready(function () {
-        // Evento clic del botón "Guardar"
-        $('.btn-primary.btn-block').click(function (event) {
-            event.preventDefault(); // Previene el envío del formulario
+    const checkbox = document.getElementById('checkActa');
+    const actaConstitutivaInput = document.getElementById('actaConstitutivaInput');
 
-            // Muestra la ventana modal
-            $('#confirmModal').modal('show');
-        });
-
-        // Evento clic del botón "Sí" de la ventana modal
-        $('#showInputFile').click(function () {
-            // Cierra la ventana modal
-            $('#confirmModal').modal('hide');
-
-            // Muestra el input file
-            $('#actaConstitutivaInput').show();
-        });
-
-        // Evento clic del botón "No" de la ventana modal
-        $('#confirmModal').on('hidden.bs.modal', function () {
-            // Si la ventana modal se cierra sin hacer clic en "Sí",
-            // envía el formulario
-            $('#actaConstitutivaInput').hide();
-            $('form').submit();
-        });
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            actaConstitutivaInput.style.display = 'block';
+        } else {
+            actaConstitutivaInput.style.display = 'none';
+        }
     });
 </script>

@@ -4,7 +4,7 @@ const router = express.Router();
 router.get('/enviar-formulario', (req, res) => {
     res.render('partials/modal');
 });
-
+  
 
 // También puedes exportar el transporter si necesitas acceder a él desde otros módulos
 
