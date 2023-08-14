@@ -33,34 +33,32 @@
               <button class="btn btn-primary pull-right" type="submit">Ingresar</button>
             </div>
             <div class="text-center">
-               <button type="button" class="btn btn-link" data-toggle="modal" data-target="#solicitarCuenta">
-                  recuperar contraseña
+               <button type="button" class="btn btn-link" data-toggle="modal" data-target="#restablecerCuenta" id="solicitar">
+                  Recuperar contraseña
                 </button>
 
-<!-- Mensajes de error y éxito -->
-{{#if message}}
-  <p class="error-message">{{message}}</p>
-{{/if}}
+              <!-- Mensajes de error y éxito -->
+              {{#if message}}
+                 <div class="alert alert-warning alert-dismissible" style="margin-top: 20px;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                     <p class="error-message">{{message}}</p>
+              </div>
+              {{/if}}
 
-{{#if success}}
-  <p class="success-message">{{success}}</p>
-{{/if}}
-
-
-
+              {{#if success}}
+              <div class="alert alert-success alert-dismissible" style="margin-top: 25px;">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button>
+                     <p class="success-message">{{success}}</p>
+                     <p>La contraseña se envió a la dirección de correo electrónico registrada.</p>
+              </div>
+              {{/if}}
                 <!-- views/email_form.hbs -->
-
-
-
             </div>    
         </div>
-           
-      </form>
-   <!-- Modal   {{>modal}} -->
-             
+      </form>   
           {{>recover}}
-
-
       <form class="form-horizontal access" role="form">
         <div class="form-group">
             <label class="col-sm-3 control-label" for="cct">CCT</label>

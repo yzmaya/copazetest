@@ -13,7 +13,7 @@ passport.use('local.signin', new LocalStrategy({
     const user = rows[0];
     done(null, user, req.flash('success', 'Welcome ' + user.username));
   } else {
-    done(null, false, req.flash('message', 'Incorrect Email or Password'));
+    done(null, false, req.flash('message', 'Correo electronico o contraseña incorrecta'));
   }
 }));
 
