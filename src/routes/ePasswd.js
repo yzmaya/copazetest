@@ -24,7 +24,7 @@ router.post('/send-email', async (req, res) => {
       // Si el correo existe, enviar el correo con los datos obtenidos
       const { fullname, contrasena } = userData[0];
       await transporter.sendMail({
-        from: 'akjasso@gmail.com', // Cambia esto por tu correo
+        from: , // Cambia esto por tu correo
         to: email,
         subject: 'Información de usuario',
         text: `Hola ${fullname}, tu contraseña es: ${contrasena}`,
