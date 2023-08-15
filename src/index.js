@@ -10,6 +10,7 @@ const MySQLStore = require('express-mysql-session')(session);
 const bodyParser = require('body-parser');
 const transporter = require("./lib/mailer")
 
+
 const { database } = require('./keys');
 
 // Intializations
@@ -62,6 +63,7 @@ app.use(require('./routes/arteYcultura'));
 app.use(require('./routes/gestionAmbiental'));
 app.use(require('./routes/eSolicitud'));
 app.use(require('./routes/ePasswd'));
+app.use('/agregarMiembros', require('./routes/agregarMiembros'));
 
 // Importar el router de ePasswd.js
 

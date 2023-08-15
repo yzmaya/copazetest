@@ -1,0 +1,230 @@
+<div class="container add">
+    <div class="row">
+        <div class="col-md-4  col-md-offset-4">
+
+            <div class="card">
+                <div class="card-body">
+                    <form action="/agregarMiembros/add" method="POST" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <select class="form-control" name="tipo" id="seleccionar">
+                                <option>Integrantes</option>
+                                <option>Unidad de Atención</option>
+                                <option>Red de Apoyo</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select class="form-control" name="comision">
+                                <option selected="true" disabled="disabled">Elegir opción</option>
+                                <option>Junta de paz escolar</option>
+                                <option>Junta de salud física y mental</option>
+                                <option>Junta de activación física, deporte, alimentación saludable y nutritiva</option>
+                                <option>Junta de arte y cultura</option>
+                                <option>Junta de gestión ambiental sostenible y ahorro de recursos</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="nombre" class="form-control" placeholder="Nombre">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido1" class="form-control" placeholder="Primer apellido">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="apellido2" class="form-control" placeholder="Segundo apellido">
+                        </div>
+                        <div class="form-group" id="cargosIntegrantes">
+                            <select class="form-control" name="cargo">
+
+                                <option>Director o responsable de plantel</option>
+                                <option>Subdirector</option>
+                                <option>Administrativo</option>
+                                <option>Personal de apoyo</option>
+                                <option>Alumno</option>
+                                <option>Padre de familia</option>
+                                <option>Otra figura</option>
+
+
+                            </select>
+                        </div>
+
+
+                        <div class="form-group" id="app">
+
+                        </div>
+
+                        <div class="form-group" id="app2" style="display: none;">
+                            <input type="text" name="dependencia" id="temporal">
+
+                        </div>
+
+                        <!-- Agrega este código dentro de tu formulario, antes del botón de guardar -->
+
+
+                        <!-- Agrega este código dentro de tu formulario, antes del botón de guardar -->
+                        <div class="form-group" id="actaConstitutivaInput" style="display: none;">
+                            <input type="file" name="archivo1" class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" value="" id="checkActa">Deseas agregar tu acta para el tipo
+                                    <label for="seleccionar" id="tipoLabel">Integrantes</label>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button  class="btn btn-primary btn-block" data-toggle="modal" data-target="#confirmModal">
+                            Guardar
+                        </button>
+
+
+
+
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+    let seleccionar = document.getElementById('seleccionar');
+
+    seleccionar.addEventListener('change', establecerClima);
+
+    function establecerClima() {
+        let eleccion = seleccionar.value;
+
+        if (eleccion === 'Red de Apoyo') {
+            document.getElementById('tipoLabel').innerHTML = 'Red de Apoyo';
+            document.getElementById('app2').style.display = 'block';
+
+            if (document.getElementById('temporal')) {
+                document.getElementById('temporal').remove();
+            } else {
+
+            }
+
+
+            const div = document.createElement("select");
+            div.className = "form-control";
+            div.name = "dependencia";
+            div.id = "myDependencia";
+            div.innerHTML = "<option>CONAVIM</option><option>SIPINNA</option><option>Secretaría de Salud</option><option>Fiscalía</option><option>DIF</option><option>Instituciones de la mujer</option><option>Juventud</option><option>Derechos humanos</option><option>Organizaciones de la Sociedad Civil</option>"
+
+
+
+
+            document.getElementById("app2").appendChild(div);
+
+
+
+        } else if (eleccion === 'Integrantes') {
+            document.getElementById('tipoLabel').innerHTML = 'Integrantes';
+            if (document.getElementById('cargosUnidad')) {
+                document.getElementById('cargosUnidad').remove();
+            }
+
+            if (document.getElementById('cargosIntegrantes')) {
+                document.getElementById('cargosIntegrantes').remove();
+            }
+
+
+
+            if (document.getElementById('myDependencia')) {
+                document.getElementById('myDependencia').remove();
+
+                const div = document.createElement("input");
+                div.type = "text";
+                div.name = "dependencia";
+                div.id = "temporal";
+
+
+                document.getElementById("app2").appendChild(div);
+
+                document.getElementById('app2').style.display = 'none';
+            } else {
+                console.log('no hay nada')
+            }
+
+
+            const div = document.createElement("select");
+            div.className = "form-control";
+            div.name = "cargo";
+            div.id = "cargosIntegrantes";
+            div.innerHTML = "<option>Director o responsable de plantel</option><option>Subdirector</option><option>Administrativo</option><option>Personal de apoyo</option><option>Alumno</option><option>Padre de familia</option><option>Otra figura</option>"
+
+
+
+
+            document.getElementById("app").appendChild(div);
+        } else if (eleccion === 'Unidad de Atención') {
+            document.getElementById('tipoLabel').innerHTML = 'Unidad de Atención';
+            // document.getElementById('mostrarSign').style.display = 'none';
+            if (document.getElementById('cargosUnidad')) {
+                document.getElementById('cargosUnidad').remove();
+            }
+
+            if (document.getElementById('cargosIntegrantes')) {
+                document.getElementById('cargosIntegrantes').remove();
+            }
+
+
+
+            if (document.getElementById('myDependencia')) {
+                document.getElementById('myDependencia').remove();
+                const div = document.createElement("input");
+                div.type = "text";
+                div.name = "dependencia";
+                div.id = "temporal";
+
+
+                document.getElementById("app2").appendChild(div);
+
+                document.getElementById('app2').style.display = 'none';
+            } else {
+                console.log('no hay nada')
+            }
+
+
+            const div = document.createElement("select");
+            div.className = "form-control";
+            div.name = "cargo";
+            div.id = "cargosUnidad";
+            div.innerHTML = "<option>Director</option><option>Subdirector</option><option>Docentes</option><option>Personal Administrativo</option>"
+
+
+
+
+            document.getElementById("app").appendChild(div);
+        } else {
+            // parrafo.textContent = '';
+        }
+    }
+
+
+</script>
+
+<script>
+    const checkbox = document.getElementById('checkActa');
+    const actaConstitutivaInput = document.getElementById('actaConstitutivaInput');
+
+    checkbox.addEventListener('change', () => {
+        if (checkbox.checked) {
+            actaConstitutivaInput.style.display = 'block';
+        } else {
+            actaConstitutivaInput.style.display = 'none';
+        }
+    });
+</script>

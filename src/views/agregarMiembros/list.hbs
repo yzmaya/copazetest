@@ -1,0 +1,74 @@
+{{>imagen-header}}
+<style>
+    .contenedor-tabla {
+        max-height: 550px;
+        overflow: auto;
+      
+        display: inline-block;
+    }
+
+    table {
+        position: relative;
+    }
+
+    thead th {
+        position: sticky;
+        top: 0;
+        background: #DDDDDD;
+        z-index: 1;
+        border-bottom: 2px solid;
+    }
+
+ 
+</style>
+<br><br><br>
+<div class="container" id="container">
+   <h3 class="text-center">Agregar Miembros</h3>
+    <br>
+    <div class="table-responsive table-bordered contenedor-tabla tabla" id="tabla">
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Comisión</th>
+                    <th>Nombre</th>
+                    <th>Cargo</th>
+                    <th>Dependencia</th>
+                    <th>Archivos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            {{#each links}}
+
+            <tbody>
+                <tr>
+                    <td>{{tipo}}</td>
+                    <td>{{comision}}
+
+                    </td>
+                    <td>{{nombre}} {{apellido1}} {{apellido2}}</td>
+                    <td>{{cargo}}</td>
+                    <td>{{dependencia}}</td>
+                    <td><a target="_blank" href="uploads/{{archivo1}}">{{archivo1}}</a></td>
+                    <!--  <td>{{timeago created_at}}</td> -->
+                    <td></a> <a class="btn btn-secondary" href="/agregarMiembros/edit/{{id}}">
+                            Editar
+                        </a>
+                        <a class="btn btn-danger" href="/agregarMiembros/delete/{{id}}">
+                            Eliminar
+
+                    </td>
+                </tr>
+
+
+            </tbody>
+            {{/each}}
+        </table>
+    </div>
+    <div class="col-md-4 col-md-offset-4" style="padding: 20px 0;">
+        <a href="/agregarMiembros/add"><button type="button" class="btn btn-primary">Agregar miembros</button></a>
+        <a href="#carousel-example-generic"><button type="button" class="btn btn-default"><span aria-hidden="true">Ir arriba</span></button></a>
+    </div>
+
+           
+</div>
