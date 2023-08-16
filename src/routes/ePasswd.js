@@ -18,7 +18,7 @@ router.post('/send-email', async (req, res) => {
     const userData = await pool.query('SELECT fullname, contrasena FROM users WHERE username = ?', [email]);
     if (userData.length === 0) {
       // Si el correo no existe, muestra un mensaje de error y redirecciona al formulario
-      req.flash('message', 'La dirección de correo no está registrada, favor de comunicarse con la persona responsable de su plantel o con la Dirección de Proyectos de Optimización de Infraestructura de la SEMS al correo culturadepaz.eje4@sems.gob.mx');
+      req.flash('message', `La dirección de correo no está registrada, favor de comunicarse con la persona responsable de su plantel o con la Dirección de Proyectos de Optimización de Infraestructura de la SEMS al correo ${<a href="mailto:culturadepaz.eje4@sems.gob.mx">culturadepaz.eje4@sems.gob.mx</a>}`);
       res.redirect('/#solicitar');
     } else {
       // Si el correo existe, enviar el correo con los datos obtenidos
