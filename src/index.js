@@ -25,7 +25,7 @@ app.engine('.hbs', exphbs({
   layoutsDir: path.join(app.get('views'), 'layouts'),
   partialsDir: path.join(app.get('views'), 'partials'),
   extname: '.hbs',
-  helpers: require('./lib/handlebars')
+  helpers: require('./lib/handlebars'),
 }))
 app.set('view engine', '.hbs');
 
@@ -63,6 +63,7 @@ app.use(require('./routes/arteYcultura'));
 app.use(require('./routes/gestionAmbiental'));
 app.use(require('./routes/eSolicitud'));
 app.use(require('./routes/ePasswd'));
+app.use(require('./routes/admin'));
 app.use('/agregarMiembros', require('./routes/agregarMiembros'));
 
 // Importar el router de ePasswd.js
@@ -78,3 +79,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(app.get('port'), () => {
   console.log('Server is in port', app.get('port'));
 });
+
+

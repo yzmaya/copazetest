@@ -7,4 +7,12 @@ helpers.timeago = (savedTimestamp) => {
     return timeagoInstance.format(savedTimestamp);
 };
 
+helpers.ifUsername =  function(user, options) {
+    if (user.username === 'karen.jasso@sems.gob.mx') {
+      return options.fn(this);
+    } else {
+      return options.inverse(this);
+    }
+  }
+
 module.exports = helpers;
