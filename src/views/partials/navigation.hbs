@@ -1,29 +1,30 @@
 <header>
-<nav class="navbar navbar-inverse  sub-navbar navbar-fixed-top" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMainCollapse" >
-        <span class="sr-only">Interruptor de navegación</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a href="https://www.gob.mx/" class="nav-brand"><img src="https://framework-gb.cdn.gob.mx/landing/img/logoheader.svg" alt="" width="128" height="48"></a>
-    </div>
+  <nav class="navbar navbar-inverse  sub-navbar navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMainCollapse">
+          <span class="sr-only">Interruptor de navegación</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a href="https://www.gob.mx/" class="nav-brand"><img
+            src="https://framework-gb.cdn.gob.mx/landing/img/logoheader.svg" alt="" width="128" height="48"></a>
+      </div>
 
-    <div class="collapse navbar-collapse" id="navbarMainCollapse">
-      <ul class="nav navbar-nav  navbar-right">
-        <li><a href="https://www.gob.mx/tramites">Trámites</a></li>
-        <li><a href="https://www.gob.mx/gobierno">Gobiernos</a></li>
-        <li><a href="https://www.gob.mx/busqueda">
-           <span class="sr-only">Búsqueda</span>
-           <span class="glyphicon glyphicon-search"></span>
-          </a>  
-        </li>
-      </ul>
+      <div class="collapse navbar-collapse" id="navbarMainCollapse">
+        <ul class="nav navbar-nav  navbar-right">
+          <li><a href="https://www.gob.mx/tramites">Trámites</a></li>
+          <li><a href="https://www.gob.mx/gobierno">Gobiernos</a></li>
+          <li><a href="https://www.gob.mx/busqueda">
+              <span class="sr-only">Búsqueda</span>
+              <span class="glyphicon glyphicon-search"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 </header>
 
 <nav class="navbar navbar-inverse sub-navbar navbar-fixed-top">
@@ -35,51 +36,57 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/"> <i class="fas fa-link"></i> APAZE</a>
+      <a class="navbar-brand" href="/"> <i class="fas fa-link"></i> COPAZE</a>
     </div>
-    
+
     <div class="collapse navbar-collapse" id="subenlaces">
       <ul class="nav navbar-nav  navbar-right">
         {{#if user}}
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
             {{!-- Links --}}
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/links">All Links</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/links/add">Add A Link</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/profile">Inicio</a>
-          </li>
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/links">All Links</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/links/add">Add A Link</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/profile">Inicio</a>
+        </li>
 
-          
-           {{#ifUsername user }}
-            <li class="nav-item">
-              <a class="nav-link" href="/admin">Admin</a>
-            </li>
-          {{/ifUsername}}
 
-          <li class="nav-item">
-            <a class="nav-link" href="/logout">Cerrar sesión</a>
-          </li>
-          {{else}}
-          <li class="nav-item">
-            <a class="nav-link" href="#form-signin">Iniciar sesión</a>
-          </li>
-          
-           {{!-- <li class="nav-item">
-            <a class="nav-link" href="/signup">Registrarse</a>
-          </li>   --}}
-          
-          {{/if}}
+
+        {{#if user}}
+        {{#if (eq user.username "ivansomma8@gmail.com")}}
+        <li class="nav-item">
+          <a class="nav-link" href="/admin">Admin</a>
+        </li>
+        {{/if}}
+        {{/if}}
+
+
+        <li class="nav-item">
+          <a class="nav-link" href="/logout">Cerrar sesión</a>
+        </li>
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" href="#form-signin">Iniciar sesión</a>
+        </li>
+
+        {{!-- <li class="nav-item">
+          <a class="nav-link" href="/signup">Registrarse</a>
+        </li> --}}
+
+        {{/if}}
       </ul>
     </div>
   </div>
 </nav>
 
-
-
+<script>
+  // Agrega un log para verificar si req.emailExists se evalúa correctamente
+  console.log('req.emailExists:', {{ req.emailExists }});
+</script>

@@ -8,13 +8,25 @@ passport.use('local.signin', new LocalStrategy({
   passwordField: 'password',
   passReqToCallback: true
 }, async (req, username, password, done) => {
+
+
   const rows = await pool.query('SELECT * FROM users WHERE username = ? AND contrasena = ?', [username, password]);
+
   if (rows.length > 0) {
+
     const user = rows[0];
+
+    if (username === 'ivansomma8@gmail.com') {
+      console.log('La cuenta de correo existe');
+    }
+
     done(null, user, req.flash('success', 'Welcome ' + user.username));
   } else {
     done(null, false, req.flash('message', 'Correo electronico o contraseña incorrecta'));
   }
+
+
+
 }));
 
 passport.use('local.signup', new LocalStrategy({
